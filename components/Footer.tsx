@@ -13,7 +13,7 @@ export default function Footer() {
     <footer className="border-t border-panel px-6 py-10 sm:px-10">
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 sm:flex-row">
         <p className="font-mono text-xs text-muted">
-          © {new Date().getFullYear()} Bill Chakairu. Built with Next.js.
+          © {new Date().getFullYear()} Bill Chakairu.
         </p>
         <div className="flex gap-4">
           {SOCIALS.map(({ href, label, Icon }) => (

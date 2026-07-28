@@ -18,9 +18,9 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: 'Bill Chakairu — AI, research & flute',
+  title: 'Bill Chakairu',
   description:
-    'Portfolio of Bill Chakairu: Strathmore University research assistant and instructor, software developer, and musician.',
+    'Portfolio of Bill Chakairu',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
