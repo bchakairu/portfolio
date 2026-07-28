@@ -42,7 +42,16 @@ export function getProjectSlugs(): string[] {
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project> {
-  const raw = fs.readFileSync(path.join(PROJECTS_DIR, `${slug}.md`), 'utf-8');
+  if (!slug) {
+    throw new Error('getProjectBySlug called with no slug');
+  }
+
+  const filePath = path.join(PROJECTS_DIR, `${slug}.md`);
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`No project file found for slug "${slug}" at ${filePath}`);
+  }
+
+  const raw = fs.readFileSync(filePath, 'utf-8');
   const { data, content } = matter(raw);
   const processed = await remark().use(html).process(content);
 
