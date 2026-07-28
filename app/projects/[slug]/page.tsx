@@ -4,8 +4,13 @@ export function generateStaticParams() {
   return getProjectSlugs().map((slug) => ({ slug }));
 }
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = await getProjectBySlug(params.slug);
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ slug: string }> | { slug: string };
+}) {
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
 
   return (
     <article className="mx-auto max-w-2xl px-6 py-16 sm:px-10">
